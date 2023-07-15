@@ -17,7 +17,7 @@ void hsh(void)
 		numchars = getline(&lineptr, &linesize, stdin);
 		if (numchars == EOF && isatty(STDIN_FILENO))
 			_print("");
-		if (numchars != EOF && numchars != 1)
+		if (numchars != EOF && lineptr[0] != '\n')
 			fork_hsh(lineptr);
 	}
 
@@ -39,15 +39,16 @@ void fork_hsh(char *lineptr)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		perror("fork:");
+		perror("fork");
 		return;
 	}
 	if (child_pid == 0)
 	{
 		lineptr = strtok(lineptr, "\n");
-		args[0] = lineptr;
+		args[0] = strtok(lineptr, " ");
+		args[1] = strtok(NULL, " ");
 		execve(args[0], args, env);
-		perror("execve:");
+		perror("execve");
 		exit(EXIT_FAILURE);
 	}
 	else

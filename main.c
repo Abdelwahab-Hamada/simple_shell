@@ -17,14 +17,11 @@ int main(int argc, char **argv)
 
 		if (fd == -1)
 		{
+			perror(argv[0]);
 			if (errno == EACCES)
 				exit(126);
 			if (errno == ENOENT)
-			{
-				_eputs(argv[0]);
-				_eprint(": No such file or directory");
 				exit(127);
-			}
 			return (EXIT_FAILURE);
 		}
 	}

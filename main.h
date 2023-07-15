@@ -18,10 +18,6 @@ int _putchar(char);
 void _puts(char *);
 void _print(char *);
 
-int _eputchar(char);
-void _eputs(char *);
-void _eprint(char *);
-
 char *_parse(char *);
 
 void prompt(void);
