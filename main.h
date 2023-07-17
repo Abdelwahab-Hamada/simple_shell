@@ -14,14 +14,35 @@
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
 
+/**
+ * struct pair - cmd pair
+ * @path: path
+ * @cmd: command
+ */
+struct pair
+{
+	char *path;
+	char **cmd;
+} token_pair;
+
 int _putchar(char);
 void _puts(char *);
 void _print(char *);
 
-char *_parse(char *);
-
 void prompt(void);
+
 void hsh(void);
-void fork_hsh(char *);
+void fork_hsh(void);
+
+void _strcat(char *, char *);
+
+void tokenize(char *);
+
+int check_cmd(char *);
+
+int _strstr(char *, char *);
+
+int _strlen(char *);
 
 #endif
+

@@ -15,10 +15,12 @@ void hsh(void)
 	{
 		prompt();
 		numchars = getline(&lineptr, &linesize, stdin);
-		if (numchars == EOF && isatty(STDIN_FILENO))
-			_print("");
-		if (numchars != EOF && lineptr[0] != '\n')
-			fork_hsh(lineptr);
+
+		if (*lineptr == '\n')
+			continue;
+		lineptr = strtok(lineptr, "\n");
+		if (numchars != EOF && lineptr[0] != '\n' && check_cmd(lineptr))
+			fork_hsh();
 	}
 
 	free(lineptr);
@@ -29,10 +31,9 @@ void hsh(void)
  *
  * Return:
  */
-void fork_hsh(char *lineptr)
+void fork_hsh(void)
 {
 	pid_t child_pid;
-	char *args[] = {NULL, NULL, NULL};
 	char *env[] = {NULL};
 	int status;
 
@@ -44,10 +45,11 @@ void fork_hsh(char *lineptr)
 	}
 	if (child_pid == 0)
 	{
-		lineptr = strtok(lineptr, "\n");
-		args[0] = strtok(lineptr, " ");
-		args[1] = strtok(NULL, " ");
-		execve(args[0], args, env);
+		execve(token_pair.path, token_pair.cmd, env);
+
+		free(token_pair.path);
+		free(token_pair.cmd);
+
 		perror("execve");
 		exit(EXIT_FAILURE);
 	}
