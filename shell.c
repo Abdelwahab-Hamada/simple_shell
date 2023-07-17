@@ -21,7 +21,7 @@ void hsh(char **env)
 
 		lineptr = strtok(lineptr, "\n");
 		if (_strstr(lineptr, "exit"))
-			break;
+			exit(0);
 		if (_strstr(lineptr, "env"))
 			penv(env);
 		if (numchars != EOF && lineptr[0] != '\n' && check_cmd(lineptr))
