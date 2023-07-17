@@ -18,7 +18,10 @@ void hsh(void)
 
 		if (*lineptr == '\n')
 			continue;
+
 		lineptr = strtok(lineptr, "\n");
+		if (_strstr(lineptr, "exit"))
+			break;
 		if (numchars != EOF && lineptr[0] != '\n' && check_cmd(lineptr))
 			fork_hsh();
 	}
