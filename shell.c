@@ -2,10 +2,10 @@
 
 /**
  * hsh - shell
+ * @env: environment
  *
- * Return:
  */
-void hsh(void)
+void hsh(char **env)
 {
 	char *lineptr;
 	size_t linesize = 0;
@@ -22,8 +22,10 @@ void hsh(void)
 		lineptr = strtok(lineptr, "\n");
 		if (_strstr(lineptr, "exit"))
 			break;
+		if (_strstr(lineptr, "env"))
+			penv(env);
 		if (numchars != EOF && lineptr[0] != '\n' && check_cmd(lineptr))
-			fork_hsh();
+			fork_hsh(env);
 	}
 
 	free(lineptr);
@@ -31,13 +33,12 @@ void hsh(void)
 
 /**
  * fork_hsh - fork shell
+ * @env: environment
  *
- * Return:
  */
-void fork_hsh(void)
+void fork_hsh(char **env)
 {
 	pid_t child_pid;
-	char *env[] = {NULL};
 	int status;
 
 	child_pid = fork();

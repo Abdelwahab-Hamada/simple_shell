@@ -5,7 +5,6 @@
  * @dest: destination string
  * @src: source string
  *
- * Return:string
  */
 void _strcat(char *dest, char *src)
 {

@@ -3,7 +3,7 @@
 /**
  * tokenize - tokenize command
  * @cmd: command
- * Return:
+ *
  */
 void tokenize(char *cmd)
 {

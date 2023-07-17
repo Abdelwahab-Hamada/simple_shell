@@ -4,10 +4,11 @@
  * main - entry point
  * @argc: args count
  * @argv: args vector
+ * @env: environment
  *
  * Return: 0 on success, 1 on error
  */
-int main(int argc, char **argv)
+int main(int argc, char **argv, char **env)
 {
 	int fd = 2;
 
@@ -25,7 +26,7 @@ int main(int argc, char **argv)
 			return (EXIT_FAILURE);
 		}
 	}
-	hsh();
+	hsh(env);
 	return (EXIT_SUCCESS);
 }
 

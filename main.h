@@ -31,8 +31,8 @@ void _print(char *);
 
 void prompt(void);
 
-void hsh(void);
-void fork_hsh(void);
+void hsh(char **);
+void fork_hsh(char **);
 
 void _strcat(char *, char *);
 
@@ -43,6 +43,8 @@ int check_cmd(char *);
 int _strstr(char *, char *);
 
 int _strlen(char *);
+
+void penv(char **);
 
 #endif
 

@@ -3,8 +3,7 @@
 /**
  *_puts - to print string
  *@str: string to print
- *
- *Return:
+ *:
  */
 void _puts(char *str)
 {
@@ -44,7 +43,6 @@ int _putchar(char c)
  * _print - to ease displaying str
  * @str: string to print
  *
- * Return:
  */
 void _print(char *str)
 {
