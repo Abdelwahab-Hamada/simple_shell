@@ -23,15 +23,14 @@ int main(int argc, char **argv, char **env)
 
 		if (fd == -1)
 		{
-			perror(argv[0]);
 			if (errno == EACCES)
 				exit(126);
 			if (errno == ENOENT)
+				perror(argv[0]);
 				exit(127);
 			return (EXIT_FAILURE);
 		}
 	}
-	hsh(env, argv[0]);
+	hsh(env, argv[0], fd);
 	return (EXIT_SUCCESS);
 }
-

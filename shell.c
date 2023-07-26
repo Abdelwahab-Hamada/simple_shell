@@ -6,29 +6,22 @@
  * @argv0: is program name
  *
  */
-void hsh(char **env, char *argv0)
+void hsh(char **env, char *argv0, int fd)
 {
 	char *lineptr;
 	size_t linesize = 0;
-	ssize_t numchars = 0;
+	ssize_t r = 0;
 
-	while (numchars != EOF)
+	while (r != EOF)
 	{
 		prompt();
-		numchars = getline(&lineptr, &linesize, stdin);
+		r = getline(&lineptr, &linesize, stdin);
 
-		if (*lineptr == '\n' || *lineptr == ' ' || *lineptr == '\t')
-			continue;
-
-		lineptr = strtok(lineptr, "\n");
-		if (_strstr(lineptr, "exit"))
-			exit(0);
-		if (_strstr(lineptr, "env"))
-			penv(env);
-		if (numchars != EOF && lineptr[0] != '\n' && check_cmd(lineptr, argv0))
+		if (r != -1)
+		{
+			tokenize(lineptr);
 			fork_hsh(env, argv0);
-		else
-			_putchar('\n');
+		}
 	}
 
 	free(lineptr);
