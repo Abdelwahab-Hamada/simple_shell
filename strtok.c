@@ -42,5 +42,6 @@ char *_strtok(char *string, const char *del)
 		*flag = '\0';
 		flag++;
 	}
-	return (token);
+	return (token);
 }
+
