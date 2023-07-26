@@ -1,4 +1,0 @@
-/bin/ls
-/bin/ls
-
-cat test_ls_2 | ./hsh
