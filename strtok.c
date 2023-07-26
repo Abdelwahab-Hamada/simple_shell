@@ -22,7 +22,7 @@ char *_strtok(char *string, const char *del)
 		return (NULL);
 	}
 
-	while (*flag != '\0' && strchr_alt(del, *flag) != NULL)
+	while (*flag != '\0')
 	{
 		flag++;
 	}
