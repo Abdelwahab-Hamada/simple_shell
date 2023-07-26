@@ -17,7 +17,6 @@ void handle_builtin(char **tokens)
 	}
 	else if (_strcmp(tokens[0], "env") == 0)
 	{
-		penv();
 		return;
 	}
 }
