@@ -16,12 +16,6 @@ int exec_toks(char **tokens)
 		return (1);
 
 	handle_builtin(tokens);
-	cmd = check_cmd(tokens[0]);
-	if (cmd == NULL)
-	{
-		perror("./hsh");
-		return (1);
-	}
 
 	child = fork();
 	if (child == -1)
@@ -31,6 +25,13 @@ int exec_toks(char **tokens)
 	}
 	if (!child)
 	{
+		cmd = check_cmd(tokens[0]);
+		if (cmd == NULL)
+		{
+			status = 127;
+			perror("./hsh");
+			exit(status);
+		}
 		if (execve(cmd, tokens, environ) == -1)
 		{
 			perror("./hsh");
