@@ -23,7 +23,7 @@ char *check_cmd(char *cmd)
 		if (path == NULL)
 			return (NULL);
 		cmd_size = _strlen(cmd);
-		path_dup = _strdup(cmd);
+		path_dup = _strdup(path);
 		token = strtok(path_dup, ":");
 
 		while (token != NULL)
@@ -35,8 +35,9 @@ char *check_cmd(char *cmd)
 				return (NULL);
 			}
 			_strcpy(full_path, token);
-			_strcpy(full_path, "/");
-			_strcpy(full_path, cmd);
+			_strcat(full_path, "/");
+			_strcat(full_path, cmd);
+
 			if (access(full_path, F_OK) == 0)
 			{
 				free(path_dup);

@@ -77,5 +77,7 @@ ll_t *add_node_tail(ll_t **, const char *, int);
 
 char *_memset(char *, char, unsigned int);
 
+char *_strcat(char *, const char *);
+
 #endif
 
