@@ -10,7 +10,7 @@
 int main(int ac __attribute__((unused)), char **argv __attribute__((unused)))
 {
 	hsh(ac, argv);
-
+	free_ptr(argv);
 	return (0);
 }
 

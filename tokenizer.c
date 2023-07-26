@@ -26,7 +26,7 @@ char **tokenize(char *cmd)
 		tokens[i] = _strdup(token);
 		if (tokens[i] == NULL)
 		{
-			free(tokens);
+			free_ptr(tokens);
 			perror("Failed to allocate space");
 			exit(EXIT_FAILURE);
 		}
@@ -38,7 +38,7 @@ char **tokenize(char *cmd)
 					cmd_size * sizeof(char *));
 			if (tokens == NULL)
 			{
-				free(tokens);
+				free_ptr(tokens);
 				perror("Failed to allocate space");
 				exit(EXIT_FAILURE);
 			}

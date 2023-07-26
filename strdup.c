@@ -20,7 +20,10 @@ char *_strdup(const char *str)
 
 	dup = malloc((len + 1) * sizeof(char));
 	if (dup == NULL)
+	{
+		free(dup);
 		return (NULL);
+	}
 	for (i = 0; i < len; i++)
 		dup[i] = str[i];
 	dup[i] = '\0';

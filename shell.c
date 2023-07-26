@@ -18,6 +18,7 @@ void hsh(int ac, char **argv)
 		if (cmd == NULL)
 		{
 			free(cmd);
+			free_ptr(toks);
 			break;
 		}
 		toks = tokenize(cmd);
@@ -27,5 +28,9 @@ void hsh(int ac, char **argv)
 		free_ptr(toks);
 
 	} while (run);
+
+	free_ptr(argv);
+	free(cmd);
+	free_ptr(toks);
 }
 
