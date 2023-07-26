@@ -6,13 +6,15 @@
  */
 void penv(void)
 {
-	char **env = environ;
+	const ll_t *head = set_env();
+	char *str;
 
-	while (*env != NULL)
+	while (head)
 	{
-		write(1, *env, _strlen(*env));
+		str = head->str ? head->str : "(nil)";
+		write(1, str, _strlen(str));
 		write(1, "\n", 1);
-		env++;
+		head = head->next;
 	}
 }
 
