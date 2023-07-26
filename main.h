@@ -31,7 +31,7 @@ int _putchar(char);
 void _puts(char *);
 void _print(char *);
 
-void hsh(char **, char *);
+void hsh(int, char *, char **);
 void fork_hsh(char **, char *);
 
 void tokenize(char *);

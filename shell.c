@@ -11,21 +11,22 @@
 void hsh(int fd, char *av, char **env)
 {
 	ssize_t r = 0;
-    size_t linesize = 0;
-    char *cmd;
+	size_t linesize = 0;
+	char *cmd;
 
-    while (r != -1)
-    {
-        if (isatty(STDIN_FILENO) && fd <= 2)
-    		write(STDERR_FILENO, "$ ", 2);
-        r = getline(&cmd, &linesize, stdin);
+	while (r != -1)
+	{
+		if (isatty(STDIN_FILENO) && fd >= 2)
+			write(1, "$ ", 2);
+		r = getline(&cmd, &linesize, stdin);
 
-        if (r != -1)
-        {
-            tokenize(cmd);
-            fork_hsh(env, av)
-        }
-    }
+		if (r != -1)
+		{
+			cmd = strtok(cmd, "\n");
+			tokenize(cmd);
+			fork_hsh(env, av);
+		}
+	}
 }
 
 /**
