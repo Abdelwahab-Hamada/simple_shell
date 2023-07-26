@@ -6,15 +6,15 @@
  */
 void penv(void)
 {
-	const ll_t *head = set_env();
-	char *str;
+	char **env = environ;
 
-	while (head)
+	while (*env != NULL)
 	{
-		str = head->str ? head->str : "(nil)";
-		write(1, str, _strlen(str));
+		write(1, *env, strlen(*env));
 		write(1, "\n", 1);
-		head = head->next;
+		env++;
+		free(*env);
 	}
+	free_ptr(env);
 }
 
