@@ -6,7 +6,7 @@
  *
  * Return: tokens
  */
-char **tokenize(cher *cmd)
+char **tokenize(char *cmd)
 {
 	size_t cmd_size = CMD_SIZE, i = 0;
 	char **tokens = malloc(cmd_size * sizeof(char *));
