@@ -3,10 +3,11 @@
 /**
  * check_cmd - check if path
  * @cmd: command
+ * @argv0: program name
  *
  * Return: 1 | 0
  */
-int check_cmd(char *cmd)
+int check_cmd(char *cmd, char *argv0)
 {
 	int fd = 2;
 
@@ -26,7 +27,7 @@ int check_cmd(char *cmd)
 
 	if (fd == -1)
 	{
-		perror(token_pair.path);
+		perror(argv0);
 		return (0);
 	}
 

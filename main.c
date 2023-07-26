@@ -12,6 +12,11 @@ int main(int argc, char **argv, char **env)
 {
 	int fd = 2;
 
+	asm ("mov %1, %0\n\t"
+		"add $3, %0"
+		: "=r" (fd)
+		: "r" (fd));
+
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
@@ -26,7 +31,7 @@ int main(int argc, char **argv, char **env)
 			return (EXIT_FAILURE);
 		}
 	}
-	hsh(env);
+	hsh(env, argv[0]);
 	return (EXIT_SUCCESS);
 }
 

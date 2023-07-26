@@ -31,14 +31,14 @@ void _print(char *);
 
 void prompt(void);
 
-void hsh(char **);
-void fork_hsh(char **);
+void hsh(char **, char *);
+void fork_hsh(char **, char *);
 
 void _strcat(char *, char *);
 
 void tokenize(char *);
 
-int check_cmd(char *);
+int check_cmd(char *, char *);
 
 int _strstr(char *, char *);
 

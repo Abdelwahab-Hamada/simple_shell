@@ -3,9 +3,10 @@
 /**
  * hsh - shell
  * @env: environment
+ * @argv0: is program name
  *
  */
-void hsh(char **env)
+void hsh(char **env, char *argv0)
 {
 	char *lineptr;
 	size_t linesize = 0;
@@ -24,8 +25,8 @@ void hsh(char **env)
 			exit(0);
 		if (_strstr(lineptr, "env"))
 			penv(env);
-		if (numchars != EOF && lineptr[0] != '\n' && check_cmd(lineptr))
-			fork_hsh(env);
+		if (numchars != EOF && lineptr[0] != '\n' && check_cmd(lineptr, argv0))
+			fork_hsh(env, argv0);
 		else
 			_putchar('\n');
 	}
@@ -36,9 +37,9 @@ void hsh(char **env)
 /**
  * fork_hsh - fork shell
  * @env: environment
- *
+ * @argv0: program name
  */
-void fork_hsh(char **env)
+void fork_hsh(char **env, char *argv0)
 {
 	pid_t child_pid;
 	int status;
@@ -46,7 +47,7 @@ void fork_hsh(char **env)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		perror("fork");
+		perror(argv0);
 		return;
 	}
 	if (child_pid == 0)
@@ -56,7 +57,7 @@ void fork_hsh(char **env)
 		free(token_pair.path);
 		free(token_pair.cmd);
 
-		perror("execve");
+		perror(argv0);
 		exit(EXIT_FAILURE);
 	}
 	else
