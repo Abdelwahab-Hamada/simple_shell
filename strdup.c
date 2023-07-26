@@ -4,7 +4,7 @@
  * _strdup - to duplicate a string
  * @str: string to be duplicated
  *
- * Retrun: pointer to new str
+ * Return: pointer to new str
  */
 char *_strdup(const char *str)
 {

@@ -13,7 +13,7 @@
 
 extern char **environ;
 
-void hsh(int , char **);
+void hsh(int, char **);
 
 char *read_line();
 
@@ -27,7 +27,7 @@ size_t _strlen(const char *);
 
 char *_strdup(const char *);
 
-void *_realloc(void *, unsigned int , size_t);
+void *_realloc(void *, unsigned int, size_t);
 
 void handle_builtin(char **);
 

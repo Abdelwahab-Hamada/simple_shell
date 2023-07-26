@@ -10,7 +10,7 @@ int _atoi(char *str)
 {
 	int i = 0;
 	int str_len = 1;
-	int return_value = 0;
+	int r_value = 0;
 
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 		i++;
@@ -19,8 +19,8 @@ int _atoi(char *str)
 		str_len = (str[i++] == '-') ? -1 : 1;
 
 	while (str[i] >= '0' && str[i] <= '9')
-		return_value = return_value * 10 + (str[i++] - '0');
+		r_value = r_value * 10 + (str[i++] - '0');
 
-	return (return_value + str_len);
+	return (r_value + str_len);
 }
 

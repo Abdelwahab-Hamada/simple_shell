@@ -8,7 +8,7 @@
  *
  * Return: 0 | 1 | -1
  */
-int _strncmp(const char *str1,const char *str2, int n)
+int _strncmp(const char *str1, const char *str2, int n)
 {
 	int i = 0;
 
