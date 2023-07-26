@@ -16,6 +16,7 @@ void hsh(int fd, char *av, char **env)
 
 	while (r != -1)
 	{
+		printf("%s\n", cmd)
 		if (isatty(STDIN_FILENO) && fd >= 2)
 			write(1, "$ ", 2);
 		r = getline(&cmd, &linesize, stdin);
