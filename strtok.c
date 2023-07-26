@@ -33,7 +33,7 @@ char *_strtok(char *string, const char *del)
 	}
 
 	token = flag;
-	while (*flag != '\0' && strchr(del, *flag) == NULL)
+	while (*flag != '\0')
 	{
 		flag++;
 	}
@@ -44,4 +44,3 @@ char *_strtok(char *string, const char *del)
 	}
 	return (token);
 }
-
