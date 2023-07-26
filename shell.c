@@ -26,6 +26,8 @@ void hsh(char **env)
 			penv(env);
 		if (numchars != EOF && lineptr[0] != '\n' && check_cmd(lineptr))
 			fork_hsh(env);
+		else:
+			_putchar('\n');
 	}
 
 	free(lineptr);
