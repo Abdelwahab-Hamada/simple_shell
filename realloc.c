@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 
 /**
  * _realloc - to reallocate space in memory

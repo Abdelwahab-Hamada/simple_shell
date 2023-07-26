@@ -7,7 +7,7 @@
  */
 void handle_builtin(char **tokens)
 {
-	if (_strcmp(token[0], "exit") == 0)
+	if (_strcmp(tokens[0], "exit") == 0)
 	{
 		int status = 0;
 

@@ -5,7 +5,7 @@
  *
  * Return: cmd
  */
-char *read_line(void)
+char *read_line()
 {
 	char *cmd = NULL;
 	size_t cmdsize = 0;

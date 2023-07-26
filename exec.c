@@ -8,14 +8,14 @@
  */
 int exec_toks(char **tokens)
 {
-	int status, cmd_count;
+	int status;
 	char *cmd;
 	pid_t child;
 
 	if (tokens == NULL)
 		return (1);
 
-	handle_bultin(tokens);
+	handle_builtin(tokens);
 
 	child = fork();
 	if (child == -1)

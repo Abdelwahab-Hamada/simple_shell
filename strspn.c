@@ -13,12 +13,12 @@ size_t _strspn(char *str, char *substr)
 
 	for (str_len = 0; str[str_len] != '\0'; str_len++)
 	{
-		for (sub_len = 0; sub_str[sub_len]; sub_len++)
+		for (sub_len = 0; substr[sub_len]; sub_len++)
 		{
-			if (str[str_len] == sub_str[sub_len])
+			if (str[str_len] == substr[sub_len])
 				break;
 		}
-		if (sub_str[sub_len] == '\0')
+		if (substr[sub_len] == '\0')
 			break;
 	}
 
