@@ -10,7 +10,7 @@ void handle_builtin(char **tokens, char *lineptr)
 {
 	if (_strcmp(tokens[0], "exit") == 0)
 	{
-		int status = 1;
+		int status = 0;
 
 		if (tokens[1] != NULL)
 			status = _atoi(tokens[1]);
