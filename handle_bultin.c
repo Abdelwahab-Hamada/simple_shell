@@ -3,9 +3,10 @@
 /**
  * handle_builtin - no needed
  * @tokens: cmd
+ * @lineptr: to free
  *
  */
-void handle_builtin(char **tokens)
+void handle_builtin(char **tokens, char *lineptr)
 {
 	if (_strcmp(tokens[0], "exit") == 0)
 	{
@@ -13,6 +14,7 @@ void handle_builtin(char **tokens)
 
 		if (tokens[1] != NULL)
 			status = _atoi(tokens[1]);
+		free(lineptr);
 		free_ptr(tokens);
 		exit(status);
 	}

@@ -33,7 +33,7 @@ char *read_line();
 
 char **tokenize(char *);
 
-int exec_toks(char **);
+int exec_toks(char **, char*);
 
 size_t _strspn(char *, char *);
 
@@ -43,7 +43,7 @@ char *_strdup(const char *);
 
 void *_realloc(void *, unsigned int, size_t);
 
-void handle_builtin(char **);
+void handle_builtin(char **, char *);
 
 char *check_cmd(char *);
 

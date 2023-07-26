@@ -21,7 +21,7 @@ void hsh(int ac, char **argv)
 			break;
 		}
 		toks = tokenize(cmd);
-		run = exec_toks(toks);
+		run = exec_toks(toks, cmd);
 
 		free(cmd);
 		free_ptr(toks);

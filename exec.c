@@ -3,10 +3,11 @@
 /**
  * exec_toks - execute cmd
  * @tokens: cmd
+ * @lineptr: to free
  *
  * Return: 0 || exit fialure
  */
-int exec_toks(char **tokens)
+int exec_toks(char **tokens, char *lineptr)
 {
 	int status;
 	char *cmd;
@@ -15,7 +16,7 @@ int exec_toks(char **tokens)
 	if (tokens == NULL)
 		return (1);
 
-	handle_builtin(tokens);
+	handle_builtin(tokens, lineptr);
 
 	child = fork();
 	if (child == -1)
