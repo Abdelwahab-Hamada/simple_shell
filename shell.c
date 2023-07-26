@@ -16,7 +16,7 @@ void hsh(char **env)
 		prompt();
 		numchars = getline(&lineptr, &linesize, stdin);
 
-		if (*lineptr == '\n')
+		if (*lineptr == '\n' || *lineptr == ' ' || *lineptr == '\t')
 			continue;
 
 		lineptr = strtok(lineptr, "\n");
